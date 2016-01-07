@@ -6,6 +6,7 @@
 //  Copyright © 2016 Higepon Taro Minowa. All rights reserved.
 //
 
+@import PebbleKit;
 #import "ViewController.h"
 
 @interface ViewController ()
