@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8542C80693C5307A13B13897 /* libPods-PebbleTestCompanion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AEBF1AF5CAB57C9B64466 /* libPods-PebbleTestCompanion.a */; };
 		B30743931C3EA78600194779 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B30743921C3EA78600194779 /* main.m */; };
 		B30743961C3EA78600194779 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B30743951C3EA78600194779 /* AppDelegate.m */; };
 		B30743991C3EA78600194779 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B30743981C3EA78600194779 /* ViewController.m */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5FED58E3D68C47C671175B1E /* Pods-PebbleTestCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PebbleTestCompanion.release.xcconfig"; path = "Pods/Target Support Files/Pods-PebbleTestCompanion/Pods-PebbleTestCompanion.release.xcconfig"; sourceTree = "<group>"; };
+		A12AEBF1AF5CAB57C9B64466 /* libPods-PebbleTestCompanion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PebbleTestCompanion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACF07FA14F7466D7D497C677 /* Pods-PebbleTestCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PebbleTestCompanion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PebbleTestCompanion/Pods-PebbleTestCompanion.debug.xcconfig"; sourceTree = "<group>"; };
 		B307438E1C3EA78600194779 /* PebbleTestCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PebbleTestCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B30743921C3EA78600194779 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B30743941C3EA78600194779 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -33,17 +37,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8542C80693C5307A13B13897 /* libPods-PebbleTestCompanion.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77808C05CEDE2FA8B46318EC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A12AEBF1AF5CAB57C9B64466 /* libPods-PebbleTestCompanion.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B30743851C3EA78600194779 = {
 			isa = PBXGroup;
 			children = (
 				B30743901C3EA78600194779 /* PebbleTestCompanion */,
 				B307438F1C3EA78600194779 /* Products */,
+				C6D897BF426A1FFE9B0E42DC /* Pods */,
+				77808C05CEDE2FA8B46318EC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +94,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		C6D897BF426A1FFE9B0E42DC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ACF07FA14F7466D7D497C677 /* Pods-PebbleTestCompanion.debug.xcconfig */,
+				5FED58E3D68C47C671175B1E /* Pods-PebbleTestCompanion.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B30743A51C3EA78600194779 /* Build configuration list for PBXNativeTarget "PebbleTestCompanion" */;
 			buildPhases = (
+				2B278FDC689A11938E4E3C1E /* Check Pods Manifest.lock */,
 				B307438A1C3EA78600194779 /* Sources */,
 				B307438B1C3EA78600194779 /* Frameworks */,
 				B307438C1C3EA78600194779 /* Resources */,
+				3B030777DB4B28A5555F2A62 /* Embed Pods Frameworks */,
+				A28995F7C1DA0642B99F8DB5 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -143,6 +170,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B278FDC689A11938E4E3C1E /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3B030777DB4B28A5555F2A62 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PebbleTestCompanion/Pods-PebbleTestCompanion-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A28995F7C1DA0642B99F8DB5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PebbleTestCompanion/Pods-PebbleTestCompanion-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B307438A1C3EA78600194779 /* Sources */ = {
@@ -259,6 +334,7 @@
 		};
 		B30743A61C3EA78600194779 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ACF07FA14F7466D7D497C677 /* Pods-PebbleTestCompanion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PebbleTestCompanion/Info.plist;
@@ -270,6 +346,7 @@
 		};
 		B30743A71C3EA78600194779 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FED58E3D68C47C671175B1E /* Pods-PebbleTestCompanion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = PebbleTestCompanion/Info.plist;
@@ -298,6 +375,7 @@
 				B30743A71C3EA78600194779 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
