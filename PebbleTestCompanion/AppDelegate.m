@@ -8,10 +8,15 @@
 
 @import PebbleKit;
 #import "AppDelegate.h"
+#import "theta1.h"
+#import "theta2.h"
+
+#define MESSAGE_KEY_DATA_SIZE @(0)
+#define MESSAGE_KEY_DATA @(1)
+#define MESSAGE_KEY_PREDICTION @(2)
+
 
 @interface AppDelegate () <PBPebbleCentralDelegate>
-
-@property(nonatomic) PBWatch *connectedWatch;
 
 @end
 
@@ -29,12 +34,81 @@
     [[PBPebbleCentral defaultCentral] run];
 
     for (PBWatch *watch in [PBPebbleCentral defaultCentral].connectedWatches) {
-        self.connectedWatch = watch;
+        [self _setupHandlersWithWatch:watch];
     }
-    [self sendMessageTest];
     return YES;
 }
 
+- (void)_setupHandlersWithWatch:(PBWatch *)connectedWatch
+{
+    [connectedWatch appMessagesAddReceiveUpdateHandler:^BOOL(PBWatch *watch, NSDictionary *update) {
+        [self _messageRecieved:watch data:update];
+        return YES;
+    }];
+}
+
+- (void)_messageRecieved:(PBWatch *)watch data:(NSDictionary *)dic
+{
+    NSNumber *dataSize = [dic objectForKey:MESSAGE_KEY_DATA_SIZE];
+    NSData *data = [dic objectForKey:MESSAGE_KEY_DATA];
+    NSLog(@"Received message: %@ %@ %@", dic, dataSize, data);
+
+    // connect data here
+    double x[NUM_THETA1_COL];
+    NSUInteger predict = [self _predict:x];
+    NSDictionary *update = @{ MESSAGE_KEY_PREDICTION:@(predict) };
+    [watch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+        if (!error) {
+            NSLog(@"Successfully sent message.");
+        } else {
+            NSLog(@"Error sending message: %@", error);
+        }
+    }];
+}
+
+static double sigmoid(double z) {
+    return 1 / (1 + exp(-z));
+}
+
+- (NSUInteger)_predict:(double *)x
+{
+//    double x[NUM_THETA1_COL];
+    double z2[NUM_THETA1_ROW];
+    // todo 0 origin
+    for (int i = 1; i < NUM_THETA1_ROW; i++) {
+        z2[i] = 0;
+        for (int j = 1; j < NUM_THETA1_COL; j++) {
+            z2[i] += theta1[j] * x[j];
+        }
+    }
+    for (int i = 1; i < NUM_THETA1_ROW; i++) {
+        z2[i] = sigmoid(z2[i]);
+    }
+
+    double p[NUM_THETA2_ROW];
+    // todo 0 origin
+    for (int i = 1; i < NUM_THETA2_ROW; i++) {
+        p[i] = 0;
+        for (int j = 1; j < NUM_THETA2_COL; j++) {
+            p[i] += theta2[j] * z2[j];
+        }
+    }
+    for (int i = 1; i < NUM_THETA2_ROW; i++) {
+        p[i] = sigmoid(p[i]);
+    }
+
+    double maxP = -1.0;
+    NSUInteger maxIndex = 0;
+    for (int i = 1; i < NUM_THETA2_ROW; i++) {
+        if (p[i] > maxP) {
+            maxP = p[i];
+            maxIndex = i;
+        }
+    }
+    return maxIndex;
+}
+
+/*
 - (void)sendMessageTest
 {
     NSDictionary *update = @{ @(0):[NSNumber numberWithUint8:42],
@@ -47,19 +121,21 @@
         }
     }];
 }
+ */
 
 - (void)pebbleCentral:(PBPebbleCentral*)central watchDidConnect:(PBWatch*)watch isNew:(BOOL)isNew {
     NSLog(@"Pebble connected: %@", [watch name]);
-    self.connectedWatch = watch;
-    [self sendMessageTest];
+    [self _setupHandlersWithWatch:watch];
+//    [self sendMessageTest];
 }
 
 - (void)pebbleCentral:(PBPebbleCentral*)central watchDidDisconnect:(PBWatch*)watch {
     NSLog(@"Pebble disconnected: %@", [watch name]);
-
+/*
     if ([watch isEqual:self.connectedWatch]) {
         self.connectedWatch = nil;
     }
+ */
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
