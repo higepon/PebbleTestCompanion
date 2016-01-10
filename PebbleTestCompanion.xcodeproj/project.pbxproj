@@ -30,6 +30,8 @@
 		B307439D1C3EA78600194779 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B30743A01C3EA78600194779 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B30743A21C3EA78600194779 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3D274441C406CC100F86484 /* theta1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta1.h; sourceTree = "<group>"; };
+		B3D274451C406CC100F86484 /* theta2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,8 @@
 		B30743901C3EA78600194779 /* PebbleTestCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				B3D274441C406CC100F86484 /* theta1.h */,
+				B3D274451C406CC100F86484 /* theta2.h */,
 				B30743941C3EA78600194779 /* AppDelegate.h */,
 				B30743951C3EA78600194779 /* AppDelegate.m */,
 				B30743971C3EA78600194779 /* ViewController.h */,

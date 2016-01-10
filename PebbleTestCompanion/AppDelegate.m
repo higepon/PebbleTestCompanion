@@ -6,9 +6,12 @@
 //  Copyright © 2016 Higepon Taro Minowa. All rights reserved.
 //
 
+@import PebbleKit;
 #import "AppDelegate.h"
 
-@interface AppDelegate ()
+@interface AppDelegate () <PBPebbleCentralDelegate>
+
+@property(nonatomic) PBWatch *connectedWatch;
 
 @end
 
@@ -17,7 +20,46 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+
+    [PBPebbleCentral defaultCentral].delegate = self;
+    // Set UUID of watchapp
+    NSUUID *myAppUUID = [[NSUUID alloc] initWithUUIDString:@"e4016b18-9d23-478a-bd8c-29e2d40db02b"];
+    [PBPebbleCentral defaultCentral].appUUID = myAppUUID;
+    [[PBPebbleCentral defaultCentral] run];
+
+    for (PBWatch *watch in [PBPebbleCentral defaultCentral].connectedWatches) {
+        self.connectedWatch = watch;
+    }
+    [self sendMessageTest];
     return YES;
+}
+
+- (void)sendMessageTest
+{
+    NSDictionary *update = @{ @(0):[NSNumber numberWithUint8:42],
+                              @(1):@"a string" };
+    [self.connectedWatch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
+        if (!error) {
+            NSLog(@"Successfully sent message.");
+        } else {
+            NSLog(@"Error sending message: %@", error);
+        }
+    }];
+}
+
+- (void)pebbleCentral:(PBPebbleCentral*)central watchDidConnect:(PBWatch*)watch isNew:(BOOL)isNew {
+    NSLog(@"Pebble connected: %@", [watch name]);
+    self.connectedWatch = watch;
+    [self sendMessageTest];
+}
+
+- (void)pebbleCentral:(PBPebbleCentral*)central watchDidDisconnect:(PBWatch*)watch {
+    NSLog(@"Pebble disconnected: %@", [watch name]);
+
+    if ([watch isEqual:self.connectedWatch]) {
+        self.connectedWatch = nil;
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
