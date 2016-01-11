@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B3055C8B1C43EFEC00BBCB85"
+               BuildableName = "PebbleTestCompanionTests.xctest"
+               BlueprintName = "PebbleTestCompanionTests"
+               ReferencedContainer = "container:PebbleTestCompanion.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

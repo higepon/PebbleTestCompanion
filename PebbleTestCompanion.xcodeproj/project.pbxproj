@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8542C80693C5307A13B13897 /* libPods-PebbleTestCompanion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A12AEBF1AF5CAB57C9B64466 /* libPods-PebbleTestCompanion.a */; };
+		B3055C8F1C43EFED00BBCB85 /* PebbleTestCompanionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B3055C8E1C43EFED00BBCB85 /* PebbleTestCompanionTests.m */; };
+		B3055C981C43F20900BBCB85 /* Predictor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3055C971C43F20900BBCB85 /* Predictor.m */; };
+		B3055C991C43F20900BBCB85 /* Predictor.m in Sources */ = {isa = PBXBuildFile; fileRef = B3055C971C43F20900BBCB85 /* Predictor.m */; };
 		B30743931C3EA78600194779 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B30743921C3EA78600194779 /* main.m */; };
 		B30743961C3EA78600194779 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B30743951C3EA78600194779 /* AppDelegate.m */; };
 		B30743991C3EA78600194779 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B30743981C3EA78600194779 /* ViewController.m */; };
@@ -16,10 +19,28 @@
 		B30743A11C3EA78600194779 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B307439F1C3EA78600194779 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		B3055C911C43EFED00BBCB85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B30743861C3EA78600194779 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B307438D1C3EA78600194779;
+			remoteInfo = PebbleTestCompanion;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5FED58E3D68C47C671175B1E /* Pods-PebbleTestCompanion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PebbleTestCompanion.release.xcconfig"; path = "Pods/Target Support Files/Pods-PebbleTestCompanion/Pods-PebbleTestCompanion.release.xcconfig"; sourceTree = "<group>"; };
 		A12AEBF1AF5CAB57C9B64466 /* libPods-PebbleTestCompanion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PebbleTestCompanion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACF07FA14F7466D7D497C677 /* Pods-PebbleTestCompanion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PebbleTestCompanion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PebbleTestCompanion/Pods-PebbleTestCompanion.debug.xcconfig"; sourceTree = "<group>"; };
+		B3055C8C1C43EFEC00BBCB85 /* PebbleTestCompanionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PebbleTestCompanionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3055C8E1C43EFED00BBCB85 /* PebbleTestCompanionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PebbleTestCompanionTests.m; sourceTree = "<group>"; };
+		B3055C901C43EFED00BBCB85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3055C961C43F20900BBCB85 /* Predictor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Predictor.h; sourceTree = "<group>"; };
+		B3055C971C43F20900BBCB85 /* Predictor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Predictor.m; sourceTree = "<group>"; };
+		B3055C9A1C43F3C300BBCB85 /* theta1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta1.h; sourceTree = "<group>"; };
+		B3055C9B1C43F3C300BBCB85 /* theta2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta2.h; sourceTree = "<group>"; };
+		B3055C9C1C43F3C300BBCB85 /* xval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xval.h; sourceTree = "<group>"; };
 		B307438E1C3EA78600194779 /* PebbleTestCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PebbleTestCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B30743921C3EA78600194779 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B30743941C3EA78600194779 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -30,11 +51,16 @@
 		B307439D1C3EA78600194779 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B30743A01C3EA78600194779 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B30743A21C3EA78600194779 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B3D274441C406CC100F86484 /* theta1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta1.h; sourceTree = "<group>"; };
-		B3D274451C406CC100F86484 /* theta2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta2.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B3055C891C43EFEC00BBCB85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B307438B1C3EA78600194779 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -54,10 +80,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B3055C8D1C43EFEC00BBCB85 /* PebbleTestCompanionTests */ = {
+			isa = PBXGroup;
+			children = (
+				B3055C8E1C43EFED00BBCB85 /* PebbleTestCompanionTests.m */,
+				B3055C901C43EFED00BBCB85 /* Info.plist */,
+			);
+			path = PebbleTestCompanionTests;
+			sourceTree = "<group>";
+		};
 		B30743851C3EA78600194779 = {
 			isa = PBXGroup;
 			children = (
 				B30743901C3EA78600194779 /* PebbleTestCompanion */,
+				B3055C8D1C43EFEC00BBCB85 /* PebbleTestCompanionTests */,
 				B307438F1C3EA78600194779 /* Products */,
 				C6D897BF426A1FFE9B0E42DC /* Pods */,
 				77808C05CEDE2FA8B46318EC /* Frameworks */,
@@ -68,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				B307438E1C3EA78600194779 /* PebbleTestCompanion.app */,
+				B3055C8C1C43EFEC00BBCB85 /* PebbleTestCompanionTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -75,8 +112,11 @@
 		B30743901C3EA78600194779 /* PebbleTestCompanion */ = {
 			isa = PBXGroup;
 			children = (
-				B3D274441C406CC100F86484 /* theta1.h */,
-				B3D274451C406CC100F86484 /* theta2.h */,
+				B3055C9A1C43F3C300BBCB85 /* theta1.h */,
+				B3055C9B1C43F3C300BBCB85 /* theta2.h */,
+				B3055C9C1C43F3C300BBCB85 /* xval.h */,
+				B3055C961C43F20900BBCB85 /* Predictor.h */,
+				B3055C971C43F20900BBCB85 /* Predictor.m */,
 				B30743941C3EA78600194779 /* AppDelegate.h */,
 				B30743951C3EA78600194779 /* AppDelegate.m */,
 				B30743971C3EA78600194779 /* ViewController.h */,
@@ -110,6 +150,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B3055C8B1C43EFEC00BBCB85 /* PebbleTestCompanionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B3055C931C43EFED00BBCB85 /* Build configuration list for PBXNativeTarget "PebbleTestCompanionTests" */;
+			buildPhases = (
+				B3055C881C43EFEC00BBCB85 /* Sources */,
+				B3055C891C43EFEC00BBCB85 /* Frameworks */,
+				B3055C8A1C43EFEC00BBCB85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B3055C921C43EFED00BBCB85 /* PBXTargetDependency */,
+			);
+			name = PebbleTestCompanionTests;
+			productName = PebbleTestCompanionTests;
+			productReference = B3055C8C1C43EFEC00BBCB85 /* PebbleTestCompanionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B307438D1C3EA78600194779 /* PebbleTestCompanion */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B30743A51C3EA78600194779 /* Build configuration list for PBXNativeTarget "PebbleTestCompanion" */;
@@ -139,6 +197,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Higepon Taro Minowa";
 				TargetAttributes = {
+					B3055C8B1C43EFEC00BBCB85 = {
+						CreatedOnToolsVersion = 7.2;
+						TestTargetID = B307438D1C3EA78600194779;
+					};
 					B307438D1C3EA78600194779 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -158,11 +220,19 @@
 			projectRoot = "";
 			targets = (
 				B307438D1C3EA78600194779 /* PebbleTestCompanion */,
+				B3055C8B1C43EFEC00BBCB85 /* PebbleTestCompanionTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B3055C8A1C43EFEC00BBCB85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B307438C1C3EA78600194779 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -224,17 +294,35 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B3055C881C43EFEC00BBCB85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B3055C991C43F20900BBCB85 /* Predictor.m in Sources */,
+				B3055C8F1C43EFED00BBCB85 /* PebbleTestCompanionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B307438A1C3EA78600194779 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B30743991C3EA78600194779 /* ViewController.m in Sources */,
 				B30743961C3EA78600194779 /* AppDelegate.m in Sources */,
+				B3055C981C43F20900BBCB85 /* Predictor.m in Sources */,
 				B30743931C3EA78600194779 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B3055C921C43EFED00BBCB85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B307438D1C3EA78600194779 /* PebbleTestCompanion */;
+			targetProxy = B3055C911C43EFED00BBCB85 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B307439A1C3EA78600194779 /* Main.storyboard */ = {
@@ -256,6 +344,30 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B3055C941C43EFED00BBCB85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PebbleTestCompanionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Mona.PebbleTestCompanionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PebbleTestCompanion.app/PebbleTestCompanion";
+			};
+			name = Debug;
+		};
+		B3055C951C43EFED00BBCB85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PebbleTestCompanionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Mona.PebbleTestCompanionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PebbleTestCompanion.app/PebbleTestCompanion";
+			};
+			name = Release;
+		};
 		B30743A31C3EA78600194779 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -363,6 +475,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B3055C931C43EFED00BBCB85 /* Build configuration list for PBXNativeTarget "PebbleTestCompanionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3055C941C43EFED00BBCB85 /* Debug */,
+				B3055C951C43EFED00BBCB85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		B30743891C3EA78600194779 /* Build configuration list for PBXProject "PebbleTestCompanion" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
