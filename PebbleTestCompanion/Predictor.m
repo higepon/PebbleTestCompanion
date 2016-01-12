@@ -21,33 +21,37 @@ static double sigmoid(double z) {
     NSMutableArray *ret = [[NSMutableArray alloc] initWithCapacity:3];
 
     double z2[NUM_THETA1_ROW];
-    // todo 0 origin
-    for (int i = 1; i < NUM_THETA1_ROW; i++) {
+    uint32_t xone[NUM_THETA1_COL];
+    xone[0] = 1;
+    memcpy(xone + 1, x, (NUM_THETA1_COL - 1) * sizeof(uint32_t));
+    for (int i = 0; i < NUM_THETA1_ROW; i++) {
         z2[i] = 0;
-        for (int j = 1; j < NUM_THETA1_COL; j++) {
-            z2[i] += theta1[j] * x[j];
+        for (int j = 0; j < NUM_THETA1_COL; j++) {
+            z2[i] += theta1[j + NUM_THETA1_COL * i] * xone[j];
         }
     }
-    for (int i = 1; i < NUM_THETA1_ROW; i++) {
+    for (int i = 0; i < NUM_THETA1_ROW; i++) {
         z2[i] = sigmoid(z2[i]);
     }
 
+    double zone[NUM_THETA2_COL];
+    zone[0] = 1.0;
+    memcpy(zone + 1, z2, (NUM_THETA2_COL - 1) * sizeof(double));
+
     double p[NUM_THETA2_ROW];
-    // todo 0 origin
-    for (int i = 1; i < NUM_THETA2_ROW; i++) {
+    for (int i = 0; i < NUM_THETA2_ROW; i++) {
         p[i] = 0;
-        for (int j = 1; j < NUM_THETA2_COL; j++) {
-            p[i] += theta2[j] * z2[j];
+        for (int j = 0; j < NUM_THETA2_COL; j++) {
+            p[i] += theta2[j + i * NUM_THETA2_COL] * zone[j];
         }
     }
-    for (int i = 1; i < NUM_THETA2_ROW; i++) {
+    for (int i = 0; i < NUM_THETA2_ROW; i++) {
         p[i] = sigmoid(p[i]);
     }
 
     for (int i = 0; i < NUM_THETA2_ROW; i++) {
         [ret addObject:@(p[i])];
     }
-
     return ret;
 }
 
