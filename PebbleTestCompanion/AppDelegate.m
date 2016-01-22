@@ -8,50 +8,9 @@
 
 @import PebbleKit;
 #import "AppDelegate.h"
-#import "theta1.h"
-#import "theta2.h"
-
+#import "Predictor.h"
 #define MESSAGE_KEY_ACCEL_DATA @(0)
 #define MESSAGE_KEY_PREDICTION @(1)
-
-//
-//  NSData+Endian.h
-//
-//  Created by ████
-//
-
-#import <Foundation/Foundation.h>
-
-
-/// An NSData category that allows swapping of the data's endian.
-
-@interface NSData (Endian)
-
-/** Swaps the endian of the data.
-
- @return The source data with the endian swapped. <00000001> is returned as <01000000>.
- */
--(NSData *)swapEndian;
-
-@end
-
-
-
-@implementation NSData (Endian)
-
--(NSData *)swapEndian
-{
-    NSMutableData *data = [NSMutableData data];
-    int i = (int)[self length] - 1;
-    while (i >= 0)
-    {
-        [data appendData:[self subdataWithRange:NSMakeRange(i, 1)]];
-        i--;
-    }
-    return [NSData dataWithData:data];
-}
-
-@end
 
 @interface AppDelegate () <PBPebbleCentralDelegate>
 
@@ -90,16 +49,14 @@
 - (void)_messageRecieved:(PBWatch *)watch data:(NSDictionary *)dic
 {
     NSData *data = [dic objectForKey:MESSAGE_KEY_ACCEL_DATA];
-//    data = [data swapEndian];
     NSLog(@"Received message: %@", data);
     const uint32_t* x = (const uint32_t*)data.bytes;
 
-    // connect data here
-//    double x[NUM_THETA1_COL];
-    // no need to swap endian
-//    NSLog(@"valid? %x %x %x %x", x[0], (unsigned int)endian_swap(x[0]), (unsigned int)endian_swap(x[1]), (unsigned int)endian_swap(x[2]));
-    NSUInteger predict = [self _predict:x];
-    NSDictionary *update = @{ MESSAGE_KEY_PREDICTION:@(predict) };
+    NSArray *prediction = [Predictor predict:x];
+    NSLog(@"%@", prediction);
+    NSUInteger predictionIndex = ([prediction[0] floatValue] > [prediction[1] floatValue]) ? (([prediction[0] floatValue] > [prediction[2] floatValue]) ? 0 : 2) : (([prediction[1] floatValue] > [prediction[2] floatValue]) ? 1 : 2);
+
+    NSDictionary *update = @{ MESSAGE_KEY_PREDICTION:@(predictionIndex) };
     [watch appMessagesPushUpdate:update onSent:^(PBWatch *watch, NSDictionary *update, NSError *error) {
         if (!error) {
             NSLog(@"Successfully sent message.");
@@ -107,51 +64,6 @@
             NSLog(@"Error sending message: %@", error);
         }
     }];
-}
-
-static double sigmoid(double z) {
-    return 1 / (1 + exp(-z));
-}
-
-// これが正しい答えを出すかテストするべき。
-// predict should be    9.9988e-01   4.2953e-04   2.0691e-05 for xval data
-- (NSUInteger)_predict:(const uint32_t *)x
-{
-//    double x[NUM_THETA1_COL];
-    double z2[NUM_THETA1_ROW];
-    // todo 0 origin
-    for (int i = 1; i < NUM_THETA1_ROW; i++) {
-        z2[i] = 0;
-        for (int j = 1; j < NUM_THETA1_COL; j++) {
-            z2[i] += theta1[j] * x[j];
-        }
-    }
-    for (int i = 1; i < NUM_THETA1_ROW; i++) {
-        z2[i] = sigmoid(z2[i]);
-    }
-
-    double p[NUM_THETA2_ROW];
-    // todo 0 origin
-    for (int i = 1; i < NUM_THETA2_ROW; i++) {
-        p[i] = 0;
-        for (int j = 1; j < NUM_THETA2_COL; j++) {
-            p[i] += theta2[j] * z2[j];
-        }
-    }
-    for (int i = 1; i < NUM_THETA2_ROW; i++) {
-        p[i] = sigmoid(p[i]);
-    }
-
-    double maxP = -1.0;
-    NSLog(@"%g %g %g", p[0], p[1], p[2]);
-    NSUInteger maxIndex = 0;
-    for (int i = 1; i < NUM_THETA2_ROW; i++) {
-        if (p[i] > maxP) {
-            maxP = p[i];
-            maxIndex = i;
-        }
-    }
-    return maxIndex;
 }
 
 - (void)sendMessageTest:(PBWatch *)watch
