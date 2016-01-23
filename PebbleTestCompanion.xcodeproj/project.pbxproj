@@ -42,9 +42,6 @@
 		B3055CB41C44A7EA00BBCB85 /* h1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = h1.h; sourceTree = "<group>"; };
 		B3055CB51C44A7EA00BBCB85 /* h2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = h2.h; sourceTree = "<group>"; };
 		B3055CB61C44A7EA00BBCB85 /* second.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = second.h; sourceTree = "<group>"; };
-		B3055CB71C44A7EA00BBCB85 /* theta1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta1.h; sourceTree = "<group>"; };
-		B3055CB81C44A7EA00BBCB85 /* theta2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta2.h; sourceTree = "<group>"; };
-		B3055CB91C44A7EA00BBCB85 /* xval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xval.h; sourceTree = "<group>"; };
 		B307438E1C3EA78600194779 /* PebbleTestCompanion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PebbleTestCompanion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B30743921C3EA78600194779 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B30743941C3EA78600194779 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -55,6 +52,9 @@
 		B307439D1C3EA78600194779 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B30743A01C3EA78600194779 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B30743A21C3EA78600194779 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3CD182C1C53E01E00AC28F7 /* theta1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta1.h; sourceTree = "<group>"; };
+		B3CD182D1C53E01E00AC28F7 /* theta2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = theta2.h; sourceTree = "<group>"; };
+		B3CD182E1C53E10F00AC28F7 /* xval.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = xval.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,13 +116,13 @@
 		B30743901C3EA78600194779 /* PebbleTestCompanion */ = {
 			isa = PBXGroup;
 			children = (
+				B3CD182C1C53E01E00AC28F7 /* theta1.h */,
+				B3CD182D1C53E01E00AC28F7 /* theta2.h */,
+				B3CD182E1C53E10F00AC28F7 /* xval.h */,
 				B3055CB31C44A7EA00BBCB85 /* first.h */,
 				B3055CB41C44A7EA00BBCB85 /* h1.h */,
 				B3055CB51C44A7EA00BBCB85 /* h2.h */,
 				B3055CB61C44A7EA00BBCB85 /* second.h */,
-				B3055CB71C44A7EA00BBCB85 /* theta1.h */,
-				B3055CB81C44A7EA00BBCB85 /* theta2.h */,
-				B3055CB91C44A7EA00BBCB85 /* xval.h */,
 				B3055C961C43F20900BBCB85 /* Predictor.h */,
 				B3055C971C43F20900BBCB85 /* Predictor.m */,
 				B30743941C3EA78600194779 /* AppDelegate.h */,
